@@ -1,0 +1,68 @@
+/ {
+
+    display {
+        compatible = "gpio-keys";
+
+        ledpin: led_pin_0 {
+            gpios = <&gpio0 25 GPIO_ACTIVE_LOW>;
+            label = "ledpin";
+        };
+    
+        ledpin0: led_pin_1 {
+           gpios = <&gpio0 28 GPIO_ACTIVE_LOW>;
+           label = "ledpin0";
+       };
+    
+       ledpin1: led_pin_2 {
+           gpios = <&gpio0 30 GPIO_ACTIVE_LOW>;
+           label = "ledpin1";
+       };
+    
+        busypin: gpiocus_3 {
+            gpios = <&gpio0 4 (GPIO_PULL_UP | GPIO_ACTIVE_HIGH)>;
+            label = "busypin";
+        };
+    
+        respin: gpiocus_4 {
+            gpios = <&gpio0 5 GPIO_ACTIVE_HIGH>;
+            label = "respin";
+        };
+    
+        dcpin: gpiocus_5 {
+            gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
+            label = "dcpin";
+        };
+    
+        cspin: gpiocus_6 {
+            gpios = <&gpio0 9 GPIO_ACTIVE_HIGH>;
+            label = "cspin";
+        };
+    
+        sckpin: gpiocus_7 {
+            gpios = <&gpio0 14 GPIO_ACTIVE_HIGH>;
+            label = "sckpin";
+        };
+    
+        sdipin: gpiocus_8 {
+            gpios = <&gpio0 12 GPIO_ACTIVE_HIGH>;
+            label = "sdipin";
+        };
+    
+        epenpin: gpiocus_9 {
+            gpios = <&gpio0 10 GPIO_ACTIVE_HIGH>;
+            label = "epenpin";
+        };
+    };
+
+    spibb0: spibb0 {
+        compatible = "zephyr,spi-bitbang";
+		status="okay";
+		#address-cells = <1>;
+		#size-cells = <0>;
+		clk-gpios   = <&gpio0 18 GPIO_ACTIVE_HIGH>; //
+ 		mosi-gpios  = <&gpio0 12 GPIO_ACTIVE_HIGH>; // 
+		miso-gpios  = <&gpio0 16 0>;
+        cs-gpios    = <&gpio0 20 GPIO_ACTIVE_LOW>;  
+    };    
+
+};

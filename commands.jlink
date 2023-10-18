@@ -1,0 +1,7 @@
+device nrf52810_xxaa
+SelectInterface SWD
+Speed 4000
+erase
+loadbin /home/esl/Desktop/SPI_Memory/SPI_Memory/build/zephyr/zephyr.hex, 0x00
+r
+q
